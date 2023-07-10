@@ -6,29 +6,31 @@ from django.contrib.auth.models import User
 
 
 
-
- ###################################################################################<<<<<<<<< Model for Creator registration form>>>>>>>>>>>>>>>>>
-
-class CreatorUserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    nickname = models.CharField(max_length=50)
-    gender = models.CharField(max_length=10)
+class User_Registration(models.Model):
+    
+    name = models.CharField(max_length=255,blank=True,null=True)
+    lastname = models.CharField(max_length=255,blank=True,null=True)
+    nickname = models.CharField(max_length=255,blank=True,null=True)
+    gender = models.CharField(max_length=10,blank=True,null=True)
     date_of_birth = models.DateField(null=True)
     phone_number = models.CharField(max_length=20)
+    phone_otp = models.IntegerField(null=True,blank=True)
     email = models.EmailField()
-    profession = models.CharField(max_length=50)
+    email_otp =models.IntegerField(null=True,blank=True)
+    profession = models.CharField(max_length=255,blank=True,null=True)
     experience = models.IntegerField(null=True)
-    #adding user
-    username = models.CharField(max_length=150,null=True)
-    password = models.CharField(max_length=128,null=True)
-    confirm_password = models.CharField(max_length=128,null=True)
-
+    role = models.CharField(max_length=255,blank=True,null=True)
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nickname
-    
+
+
+
+ ###################################################################################<<<<<<<<< Model for Creator registration form>>>>>>>>>>>>>>>>>
+
+
 
 
 
@@ -36,49 +38,14 @@ class CreatorUserProfile(models.Model):
  ###################################################################################<<<<<<<<< Model for Artist registration form >>>>>>>>>>>>>>>>>
 
 
-class ArtistUserProfile(models.Model):
-    name = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    nickname = models.CharField(max_length=50)
-    gender = models.CharField(max_length=10)
-    date_of_birth = models.DateField(null=True)
-    phone_number = models.CharField(max_length=20)
-    phone_otp = models.IntegerField(null=True,blank=True)
-    email = models.EmailField()
-    email_otp =models.IntegerField(null=True,blank=True)
-    profession = models.CharField(max_length=50)
-    experience = models.IntegerField(null=True)
 
-    def __str__(self):
-        return self.nickname
-    
 
 
 ###################################################################################<<<<<<<<< Confirm registration for creator >>>>>>>>>>>>>>>>>
 
-# class CreatorUser(AbstractUser):
- 
-#     username = models.CharField(max_length=150, unique=True)
-#     password = models.CharField(max_length=128)
-#     confirm_password = models.CharField(max_length=128)
 
-
-
-    # def save(self, *args, **kwargs):
-        
-    #     super().save(*args, **kwargs)
 
 
 ###################################################################################<<<<<<<<< Confirm registration for Artist >>>>>>>>>>>>>>>>>
 
-# class ArtistUser(AbstractUser):
- 
-#     username = models.CharField(max_length=150, unique=True)
-#     password = models.CharField(max_length=128)
-#     confirm_password = models.CharField(max_length=128)
 
-
-
-    # def save(self, *args, **kwargs):
-        
-    #     super().save(*args, **kwargs)

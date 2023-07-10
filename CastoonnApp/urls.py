@@ -10,10 +10,10 @@ urlpatterns = [
 
     ################################################################################### <<<<<<<<< CREATOR MODULE >>>>>>>>>>>>>>>>>
     path('creator_registration/',views.creator_registration,name='creator_registration'),
-    path('artist_registration/',views.artist_registration,name='artist_registration'),
-    path('index_artist_confirmation/',views.index_artist_confirmation,name='index_artist_confirmation'),
-    path('index_creator_confirmation/',views.index_creator_confirmation,name='index_creator_confirmation'),
-    
+    path('index_creator_confirmation/<int:user_id>/',views.index_creator_confirmation,name='index_creator_confirmation'),
+
+
+
     
 
     ################################################################################### <<<<<<<<< Artist MODULE >>>>>>>>>>>>>>>>>

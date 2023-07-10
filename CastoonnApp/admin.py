@@ -1,9 +1,6 @@
 from django.contrib import admin
-from .models import CreatorUserProfile
-from .models import ArtistUserProfile
+from .models import User_Registration
 
 # Register your models here.
 
-admin.site.register(CreatorUserProfile)
-
-admin.site.register(ArtistUserProfile)
+admin.site.register(User_Registration)
