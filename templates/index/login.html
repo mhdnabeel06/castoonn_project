@@ -228,10 +228,20 @@ body {
     </div>
   
     <div id="login-form">
-      <form>
-        <input type="text"  placeholder=" &#xf007; Username"/>
-        <input type="password" placeholder="&#xf084; Password" />
-        <button type="button" class="btn login">login</button>
+      <form method="post" action="">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+        <input type="text" name="username" placeholder=" &#xf007; Username" name="username"/>
+        <input type="password" placeholder="&#xf084; Password" name="password" />
+        <button type="submit" class="btn login">login</button>
         <p><a href="#">Forgotten account ?</a></p>
         <hr />
         <p style="text-align: center;">
