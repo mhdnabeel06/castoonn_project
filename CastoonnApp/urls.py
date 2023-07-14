@@ -1,7 +1,7 @@
 from django.urls import re_path,path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
-
+from .views import *
 urlpatterns = [
     ###################################################################################<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>>>>
     path('', views.index, name='index'),
@@ -11,13 +11,15 @@ urlpatterns = [
     ################################################################################### <<<<<<<<< CREATOR MODULE >>>>>>>>>>>>>>>>>
     path('creator_registration/',views.creator_registration,name='creator_registration'),
     path('index_creator_confirmation/<int:user_id>/',views.index_creator_confirmation,name='index_creator_confirmation'),
-
-
+   
 
     
 
     ################################################################################### <<<<<<<<< Artist MODULE >>>>>>>>>>>>>>>>>
     
+    path('forgotPassword/', views.forgotPassword,name='forgotPassword'),
+    path('resetpassword_validate/<uidb64>/<token>/', views.resetpassword_validate,name='resetpassword_validate'),
+    path('resetPassword/', views.resetPassword,name='resetPassword'),
 
 
     

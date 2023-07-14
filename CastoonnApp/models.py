@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+from django.contrib.auth.hashers import make_password
 # Create your models here.
 
 
@@ -22,15 +22,19 @@ class User_Registration(models.Model):
     role = models.CharField(max_length=255,blank=True,null=True)
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=50)
-
+    last_login = models.DateTimeField(null=True, blank=True)
+   
     def __str__(self):
         return self.nickname
 
-
+    def get_email_field_name(self):
+        return 'email'
 
  ###################################################################################<<<<<<<<< Model for Creator registration form>>>>>>>>>>>>>>>>>
 
 
+
+    
 
 
 
