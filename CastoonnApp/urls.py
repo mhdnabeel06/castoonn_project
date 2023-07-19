@@ -13,7 +13,7 @@ urlpatterns = [
     path('index_creator_confirmation/<int:user_id>/',views.index_creator_confirmation,name='index_creator_confirmation'),
    
 
-    
+    path('artist_profile/',views.artist_profile_view,name="artist_profile"),
 
     ################################################################################### <<<<<<<<< Artist MODULE >>>>>>>>>>>>>>>>>
     

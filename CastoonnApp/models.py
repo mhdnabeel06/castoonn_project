@@ -33,9 +33,32 @@ class User_Registration(models.Model):
  ###################################################################################<<<<<<<<< Model for Creator registration form>>>>>>>>>>>>>>>>>
 
 
+# Create Artist Profile
+class Profile_artist(models.Model):
+    user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)
+    firstname = models.CharField(max_length=255,blank=True,null=True)
+    lastname = models.CharField(max_length=255,blank=True,null=True)
+    phonenumber = models.CharField(max_length=20)
+    email = models.EmailField()
+    gender = models.CharField(max_length=255,blank=True,null=True)
+    date_of_birth = models.DateField(null=True)
+    marital_status = models.CharField(max_length=255,blank=True,null=True)
+    profection = models.CharField(max_length=255,blank=True,null=True)
+    height = models.IntegerField(null=True,blank=True)
+    weight = models.IntegerField(null=True,blank=True)
+    interests = models.TextField(blank=True,null=True)
+    hobbies = models.TextField(blank=True,null=True)
+    passions = models.TextField(blank=True,null=True)
+    goals = models.TextField(blank=True,null=True)
+    achievements = models.TextField(blank=True,null=True)
+    social_media_links = models.TextField(blank=True,null=True)
+    skills = models.TextField(blank=True,null=True)
+    awards = models.TextField(blank=True,null=True)
+    message = models.TextField(blank=True,null=True)
 
     
-
+    def _str_(self):
+        return f"{self.firstname} {self.lastname}"
 
 
 
